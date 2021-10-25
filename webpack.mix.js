@@ -11,13 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .vue()
-    .sass('resources/scss/app.scss', 'public/css/nk_jtb.css')
-    .sass('resources/scss/jtb.scss', 'public/css/styles.css');
+// mix.js('resources/js/app.js', 'public/js')
+//     .sass('resources/scss/jtb.scss', 'public/css/jtb.css');
 
 // set MIX_DEV_URL in .env file for local development
 mix.browserSync({
     proxy: process.env.MIX_DEV_URL,
-    files: ['**/*.php', '**/*.vue', '**/*.md', '**/*.scss'] // only required to watch files for development
+    files: ['**/*.php', '**/*.js', '**/*.md', '**/*.scss']
 });
