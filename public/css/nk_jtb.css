@@ -1841,12 +1841,6 @@ nav a:not([class*=btn]) {
   text-decoration: underline;
 }
 
-#app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 footer {
   background: #191c1d;
   margin-top: auto;
