@@ -2,6 +2,8 @@ require('./bootstrap');
 
 import Alpine from 'alpinejs'
  
-window.Alpine = Alpine
+import sidebar from './components/sidebar.js'
  
+Alpine.data('sidebar', sidebar)
+
 Alpine.start()
