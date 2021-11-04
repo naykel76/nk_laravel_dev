@@ -32,6 +32,10 @@ body {
   flex-direction: column;
 }
 
+svg {
+  fill: currentcolor;
+}
+
 :is(.frm-row:not(* > :first-child):not(input[type=hidden] + .frm-row)),
 :is(p, h1, h2, h3, h4, h5, h6) + *,
 :is(form, table) + *,
@@ -402,7 +406,7 @@ body {
 }
 
 .lead {
-  font-size: 1.3;
+  font-size: 1.3rem;
 }
 
 h1.title {
@@ -423,28 +427,42 @@ h1.title {
   line-height: 1.125;
 }
 
-.btn {
+.btn, button,
+textarea,
+select,
+input:not([type=checkbox]):not([type=radio]) {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.2rem;
   font-size: 1rem;
   padding: 0.375em 1em;
   cursor: text;
   line-height: 1.5;
-  align-items: center;
   display: inline-flex;
+  align-items: center;
   position: relative;
-  vertical-align: top;
 }
-.xs.btn {
+.xs.btn, button.xs,
+textarea.xs,
+select.xs,
+input.xs:not([type=checkbox]):not([type=radio]) {
   font-size: 0.6rem;
 }
-.sm.btn {
+.sm.btn, button.sm,
+textarea.sm,
+select.sm,
+input.sm:not([type=checkbox]):not([type=radio]) {
   font-size: 0.75rem;
 }
-.md.btn {
+.md.btn, button.md,
+textarea.md,
+select.md,
+input.md:not([type=checkbox]):not([type=radio]) {
   font-size: 1.25rem;
 }
-.lg.btn {
+.lg.btn, button.lg,
+textarea.lg,
+select.lg,
+input.lg:not([type=checkbox]):not([type=radio]) {
   font-size: 1.5rem;
 }
 
@@ -455,6 +473,105 @@ h1.title {
 :disabled,
 .disabled {
   opacity: 0.5;
+}
+
+textarea,
+select,
+input:not([type=checkbox]):not([type=radio]) {
+  padding-left: 0.75em;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+::-moz-placeholder {
+  color: #bbbbbb;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #bbbbbb;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #bbbbbb;
+  opacity: 1;
+}
+
+.checkbox,
+.radio {
+  cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+form.condensed .frm-row:not(:first-child) {
+  margin-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  form.inline .frm-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  form.inline label {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  form.inline .group,
+form.inline input:not([type=checkbox]):not([type=radio]),
+form.inline select,
+form.inline textarea {
+    flex-basis: 0;
+    flex-grow: 2;
+    flex-shrink: 0;
+  }
+}
+
+.frm-row {
+  position: relative;
+}
+.frm-row label {
+  margin-bottom: 3px;
+}
+.frm-row input:not([type=checkbox]):not([type=radio]),
+.frm-row select,
+.frm-row textarea {
+  width: 100%;
+}
+.frm-row > [class*=col] {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.frm-row > [class*=col]:first-child {
+  padding-left: 0;
+}
+.frm-row > [class*=col]:last-child {
+  padding-right: 0;
+}
+
+.with-icon {
+  position: relative;
+}
+.with-icon input {
+  padding-left: 2rem !important;
+}
+.with-icon input:focus ~ .icon {
+  color: #333;
+}
+.with-icon .icon {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 4px;
+  bottom: 0;
+  color: #bbbbbb;
+  height: 1.25rem;
 }
 
 [class*=btn].focus, [class*=btn]:focus {
@@ -1034,6 +1151,42 @@ a[class*=btn] {
   background-color: #fff6d1;
 }
 
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 360px;
+  z-index: 1000;
+  overflow-y: auto;
+  outline: none;
+  transition: transform 0.25s ease-in-out;
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  vertical-align: bottom;
+  color: inherit;
+  padding: 2px;
+}
+.icon.sm {
+  height: 1em;
+  width: 1em;
+}
+.icon.md {
+  height: 2em;
+  width: 2em;
+}
+.icon.lg {
+  height: 3em;
+  width: 3em;
+}
+
 .navbar,
 .navbar > .container {
   display: flex;
@@ -1237,31 +1390,6 @@ a[class*=btn] {
   max-width: 200px;
 }
 
-@media (max-width: 767px) {
-  .xxx {
-    background: pink;
-  }
-}
-@media (min-width: 768px) {
-  .xxx {
-    background: red;
-  }
-}
-@media (min-width: 1024px) {
-  .xxx {
-    background: green;
-  }
-}
-@media (min-width: 1200px) {
-  .xxx {
-    background: blue;
-  }
-}
-@media (min-width: 1600px) {
-  .xxx {
-    background: yellow;
-  }
-}
 .ha-l {
   justify-content: flex-start;
 }
@@ -1272,18 +1400,6 @@ a[class*=btn] {
 
 .ha-c {
   justify-content: center;
-}
-
-.ha-space-between {
-  justify-content: space-between;
-}
-
-.ha-around {
-  justify-content: space-around;
-}
-
-.ha-even {
-  justify-content: space-evenly;
 }
 
 .space-between {
@@ -1298,12 +1414,93 @@ a[class*=btn] {
   justify-content: space-evenly;
 }
 
+.va-t {
+  align-items: flex-start;
+}
+
+.va-b {
+  align-items: flex-end;
+}
+
+.va-c {
+  align-items: center;
+}
+
+.va-start {
+  align-items: start;
+}
+
+.va-stretch {
+  align-items: stretch;
+}
+
+.va-baseline {
+  align-items: baseline;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.column-reverse {
+  flex-direction: column-reverse;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex.nowrap {
+  flex-wrap: nowrap;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .flex .no-wrap {
   flex-wrap: nowrap;
 }
 
 .flex .wrap {
   flex-wrap: wrap;
+}
+
+.fg0 {
+  flex-grow: 0;
+}
+
+.fs0 {
+  flex-shrink: 0;
+}
+
+.fg1 {
+  flex-grow: 1;
+}
+
+.fs1 {
+  flex-shrink: 1;
+}
+
+.fg2 {
+  flex-grow: 2;
+}
+
+.fs2 {
+  flex-shrink: 2;
 }
 
 .fullwidth {
@@ -1317,7 +1514,7 @@ a[class*=btn] {
 
 .overlay {
   position: fixed;
-  z-index: 9998;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100%;
@@ -1328,6 +1525,10 @@ a[class*=btn] {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.no-click {
+  pointer-events: none;
 }
 
 .h16 {
@@ -2144,6 +2345,66 @@ a[class*=btn] {
 
 .np {
   padding: 0 !important;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.posa {
+  position: absolute !important;
+}
+
+.posr {
+  position: relative !important;
+}
+
+[class*=pos-] {
+  position: absolute !important;
+}
+
+.pos-t {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.pos-b {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.pos-l {
+  left: 0;
+}
+.pos-r {
+  right: 0;
+}
+.pos-tl {
+  top: 0;
+  left: 0;
+}
+.pos-tr {
+  top: 0;
+  right: 0;
+}
+.pos-bl {
+  bottom: 0;
+  left: 0;
+}
+.pos-br {
+  bottom: 0;
+  right: 0;
 }
 
 .fw4 {
