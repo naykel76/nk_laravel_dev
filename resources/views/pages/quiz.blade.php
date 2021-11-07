@@ -4,7 +4,7 @@
 
 <div class="pxy bdr-blue bdr5">
 
-    <livewire:quiz.take-quiz mid="{{ $mid }}" />
+    <livewire:quiz.show mid="{{ $mid }}" />
 
 </div>
 

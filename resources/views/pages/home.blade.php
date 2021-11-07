@@ -13,14 +13,14 @@
 
     <ul class="mb">
         <li>Submit button is enabled one all questions have been answered.</li>
-        <li>Questions appear in random order.</li>
-        <li class="txt-red">NK::TD Highlights incorrect answers on submit</li>
+        <li>Highlights incorrect answers on submit</li>
+        <li class="txt-red">NK::TD Questions appear in random order.</li>
         <li class="txt-red">NK::TD Add redirect button on submit</li>
     </ul>
 
-  
 
-    <livewire:quiz.take-quiz mid=487 />
+
+    <livewire:quiz.show mid=487 />
 
 </div>
 

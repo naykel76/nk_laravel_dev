@@ -6,12 +6,12 @@ use App\Models\QuizOption;
 use App\Models\QuizQuestion;
 use Livewire\Component;
 
-class TakeQuiz extends Component
+class Show extends Component
 {
     public $questions; // quiz questions from DB
     public $answers = []; // ['questionId => optionId']
     public $score = null;
-    public $canSubmit = true;
+    public $canSubmit = false;
     public $mid;
 
     public function mount()
@@ -63,6 +63,6 @@ class TakeQuiz extends Component
 
     public function render()
     {
-        return view('livewire.quiz.take-quiz');
+        return view('livewire.quiz.show');
     }
 }
