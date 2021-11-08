@@ -24,11 +24,10 @@ class CreateQuizTables extends Migration
 
         Schema::create('quiz_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->references('id')->on('quiz_questions');
+            $table->foreignId('question_id')->references('id')->on('quiz_questions')->onDelete('cascade');
             $table->string('option_text');
             $table->boolean('is_correct')->default(false);
             $table->integer('sort_order')->nullable()->default(0);
-            //     $table->integer('points')->nullable()->default(0);
             $table->timestamps();
         });
 
