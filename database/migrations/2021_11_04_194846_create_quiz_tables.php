@@ -6,15 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateQuizTables extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        // 'media' table is created in place of a 'quizzes' table to work with NayKel LMS
-
         Schema::create('quiz_questions', function (Blueprint $table) {
             $table->id();
             $table->string('question');
@@ -26,25 +19,13 @@ class CreateQuizTables extends Migration
             $table->id();
             $table->foreignId('question_id')->references('id')->on('quiz_questions')->onDelete('cascade');
             $table->string('option_text');
-            $table->boolean('is_correct')->default(false);
+            // $table->boolean('is_correct')->default(false);
+            $table->integer('is_correct')->nullable()->default(0);
             $table->integer('sort_order')->nullable()->default(0);
             $table->timestamps();
         });
-
-        // Schema::create('questions', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->unsignedBigInteger('media_id');
-        //     $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');
-        // });
-
- 
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('quiz_options');
