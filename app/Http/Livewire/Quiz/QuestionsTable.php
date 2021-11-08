@@ -9,7 +9,7 @@ use Livewire\Component;
 class QuestionsTable extends Component
 
 {
-    public $editMe = false;
+    public $editQuestion = false;
     public $showModal = false;
     public $qid;
     public $question;
@@ -33,6 +33,9 @@ class QuestionsTable extends Component
         $this->question = QuizQuestion::find($qid);
     }
 
+    /**
+     * This function takes care of both saving and updating the quiz question
+     */
     public function save()
     {
         $this->validate();
@@ -40,21 +43,23 @@ class QuestionsTable extends Component
         if (!is_null($this->qid)) {
             $this->question->save();
         } else {
-            dd('you should not be able to see this');
+            dd('you should not be able to see this, please contact nathan');
         }
 
-        // $this->editMe = false;
     }
+
+  
 
     public function cancel()
     {
-        $this->editMe = false;
+        $this->editQuestion = false;
         $this->qid = null;
     }
+
     public function close()
     {
         $this->showModal = false;
-        $this->editMe = false;
+        $this->editQuestion = false;
         $this->qid = null;
     }
 

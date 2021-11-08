@@ -19,7 +19,6 @@ class CreateQuizTables extends Migration
             $table->id();
             $table->foreignId('question_id')->references('id')->on('quiz_questions')->onDelete('cascade');
             $table->string('option_text');
-            // $table->boolean('is_correct')->default(false);
             $table->integer('is_correct')->nullable()->default(0);
             $table->integer('sort_order')->nullable()->default(0);
             $table->timestamps();

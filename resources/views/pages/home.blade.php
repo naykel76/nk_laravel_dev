@@ -2,9 +2,6 @@
 
 @section('content')
 
-<form action="">
-    <input type="number" validate>
-</form>
 <section class="bx bdr5 bdr-blue">
 
     <div class="bx-title mb">Questions list</div>
@@ -21,6 +18,13 @@
         <li class="txt-red">if less than 2 question options the question will not be published</li>
         <li class="txt-red">check if points allocated</li>
 
+    </ul>
+
+    <h4>Usage</h4>
+    <ul>
+        <li>Questions and Options are created together with <code>CreateQuestionForm</code> Which is called with the 'add new' button in the questions table.</li>
+        <li>Questions are both created and updated with the <code>save()</code> function in <code>QuestionsTable</code></li>
+        <li>Options are edited with <code>EditOptions</code></li>
     </ul>
 
     <?php $mediaId = 87 ?>

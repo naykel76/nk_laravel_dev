@@ -3,11 +3,9 @@
 namespace App\Http\Livewire\Quiz;
 
 use App\Models\QuizOption;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
-use Throwable;
 
-class EditQuestionOptions extends Component
+class EditOptions extends Component
 
 {
 

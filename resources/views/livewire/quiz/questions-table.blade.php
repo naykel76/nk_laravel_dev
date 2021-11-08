@@ -50,24 +50,25 @@
 
                 <form wire:submit.prevent="save">
 
-                    @if($editMe)
+                    @if($editQuestion)
                         <x-formit::input wire:model.defer="question.question" for="question.question" />
                         <div class="txt-red tar">To cancel update please refresh the page</div>
                         <div class="mt tar">
-                            <button wire:click.prevent="$toggle('editMe')" class="btn primary" type="submit"> Save Changes </button>
+
+                            <button wire:click="$toggle('editQuestion')" class="btn primary" type="submit"> Save Changes </button>
                             <button disabled class="btn" type="submit"> Cancel </button>
                         </div>
                     @else
                         <p class="lead"><strong>Question:</strong> {{ $question->question }}
-                            <small><a wire:click.prevent="$toggle('editMe')" href="#" class="ml">edit</a></small>
+                            <small><a wire:click.prevent="$toggle('editQuestion')" href="#" class="ml">edit</a></small>
                         </p>
                     @endif
 
                 </form>
 
                 <hr>
-                
-                <livewire:quiz.edit-question-options qid="{{ $qid }}" />
+
+                <livewire:quiz.edit-options qid="{{ $qid }}" />
 
                 <div class="mt tar">
                     <button wire:click="$emit('closeModal')" class='btn mal nm'>Close</button>
