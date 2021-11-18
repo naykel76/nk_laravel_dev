@@ -11,8 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/scss/jtb.scss', 'public/css/jtb.css');
+// mix.js('resources/js/app.js', 'public/js')
+//     .sass('resources/scss/jtb.scss', 'public/css/jtb.css');
 
 // set MIX_DEV_URL in .env file for local development
 mix.browserSync({
