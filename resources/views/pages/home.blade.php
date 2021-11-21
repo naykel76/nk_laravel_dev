@@ -2,4 +2,6 @@
 
 @section('content')
 
+<livewire:transactions></livewire:transactions>
+
 @endsection
