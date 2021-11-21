@@ -11,8 +11,12 @@ class Transaction extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $casts = ['date' => 'date'];
     protected $appends = ['date_for_editing'];
+
+    protected $casts = [
+        'amount' => \Naykel\Gotime\Casts\CurrencyCast::class,
+        'date' => 'date'
+    ];
 
     public function getDateForHumansAttribute()
     {
