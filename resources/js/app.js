@@ -6,4 +6,5 @@ import sidebar from './components/sidebar.js'
  
 Alpine.data('sidebar', sidebar)
 
-Alpine.start()
+window.Alpine = Alpine
+window.Alpine.start()

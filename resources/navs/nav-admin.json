@@ -2,9 +2,10 @@
   "main": {
     "links": [
       {
-        "title":"Home",
-        "route_name": "home",
-        "url": "/"
+        "title":"Admin",
+        "route_name": "admin",
+        "url": "/admin",
+        "icon": "dashboard"
       }
     ]
   }
