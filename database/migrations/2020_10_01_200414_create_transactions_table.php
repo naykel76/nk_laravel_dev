@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('amount');
             $table->string('status');
             $table->date('date');
-            $table->date('due_date');
+            $table->date('expires_at')->nullable();
             $table->timestamps();
         });
     }

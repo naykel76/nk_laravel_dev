@@ -18,6 +18,7 @@ class TransactionFactory extends Factory
             'amount' => rand(10, 500),
             'status' => Arr::random(['success', 'processing', 'failed']),
             'date' => Carbon::now()->subDays(rand(1, 365))->startOfDay(),
+            'expires_at' => Carbon::now()->subDays(rand(1, 365))->startOfDay(),
         ];
     }
 }
